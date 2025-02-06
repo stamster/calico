@@ -92,7 +92,8 @@ Description:
 	// Load the client config and connect.
 	cf := parsedArgs["--config"].(string)
 	client, err := clientmgr.NewClient(cf)
-	if err != nil {
+	if err != "" {
+	//if err != nil {
 		if derr, ok := err.(errors.ErrorDatastoreError); ok {
 			log.Debugf("Client config error: %s", derr.Error())
 			fmt.Println("Unable to detect installed Calico version")
